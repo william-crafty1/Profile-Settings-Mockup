@@ -1,0 +1,547 @@
+// Font and colors
+$bodyFont: 'Archivo',
+sans-serif;
+$fontColor: black;
+$button-font-colors: whitesmoke;
+$tab-panel-background-color: rgb(228, 228, 228);
+$Violet: #6e20d4;
+$Blue: #135ab8;
+$footer-grey: #000000;
+
+// logo
+$logoHeight: 80px;
+$logoWidth: 100%;
+$imgHeight: 50px;
+$imgWidth: 120px;
+
+// Mixins
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin buttons {
+    height: 50px;
+    width: 200px;
+    padding: 10px;
+    background-color: $Violet;
+    color: $button-font-colors;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+@mixin clear-button {
+    height: 50px;
+    width: 200px;
+    padding: 10px;
+    background-color: white;
+    color: $Violet;
+    border: solid 2px $Violet;
+    border-radius: 8px;
+    cursor: pointer;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+@mixin alert-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    height: 200px;
+    width: 500px;
+    padding: 20px;
+    border-radius: 16px;
+    border: 2px solid $footer-grey;
+}
+
+@mixin alert-box-contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    border-top: silver solid 2px;
+    border-bottom: silver solid 2px;
+}
+
+// Main CSS Styles
+html {
+    font: 100% $bodyFont;
+}
+
+body {
+    font: 100% $bodyFont;
+    background-color: $button-font-colors;
+    margin: 0;
+    padding: 0;
+}
+
+// Logo/Header CSS
+
+.company-logo {
+    height: 70px;
+    margin-left: 80px;
+}
+
+.logo {
+    height: $logoHeight;
+    width: $logoWidth;
+    padding-bottom: 10px;
+    border-bottom: 2px solid silver;
+}
+
+.imgLogo {
+    width: $imgWidth;
+    height: $imgHeight;
+}
+
+.company-title{
+    padding-top: 10px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+    .logo {
+        @include flex-row()
+    }
+
+    .company-logo,
+    .navbar-brand {
+        height: 30px;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    #header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0;
+    }
+}
+
+// blank Div used for formatting 
+
+#tab-bar-block {
+    height: 100px;
+    background-color: $footer-grey;
+}
+
+// navigation tabs CSS
+
+#myTab {
+    padding-left: 20px;
+    background-color: $Blue;
+    color: white;
+}
+
+#tab-link:active {
+    color: white;
+}
+
+#tab-link:hover {
+    opacity: 0.5;
+}
+
+#tab-link {
+    color: white;
+    margin-left: 8px;
+    border-bottom: none;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.tab-pane {
+    padding: 50px;
+    background-color: $tab-panel-background-color;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    background-color: $Violet;
+    color: white;
+    border: none;
+    border-bottom: none;
+}
+
+// Mobile Adjustments 
+@media (max-width: 576px) {
+    #myTab {
+        display: flex;
+        justify-content: center;
+        padding-left: 0px;
+        padding-right: 16px;
+    }
+    .tab-pane {
+        padding: 0px;
+    }
+}
+
+
+
+// Profile Forms tab CSS
+
+#personal-info-tab {
+    @include flex-row();
+    background-color: $tab-panel-background-color;
+
+    #form-containers {
+        background-color: white;
+        border-radius: 8px;
+        margin: 20px;
+        padding: 20px;
+
+    }
+
+    #form-containers-password {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: white;
+        border-radius: 8px;
+        height: 572px;
+        margin: 20px;
+        padding: 20px;
+    }
+}
+
+.form-heading {
+    border-bottom: 2px solid $footer-grey;
+    padding-left: 10px;
+}
+
+.form-label {
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 0.5rem;
+    width: 50%;
+}
+
+.form-label-password {
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 0.5rem;
+    width: 40%;
+}
+
+#small-labels {
+    width: 16%;
+    text-align: center;
+}
+
+#city-state-fields {
+    @include flex-row();
+    width: 80% !important;
+    padding: 10px !important;
+    margin-left: 32px;
+    flex-wrap: nowrap;
+
+    #city {
+        width: 40%;
+    }
+
+    #state {
+        width: 12%;
+    }
+
+    #zip {
+        width: 32%;
+    }
+}
+
+// Mobile Adjustments 
+@media (max-width: 576px) {
+    #personal-info-tab {
+        @include flex-column();
+    }
+}
+
+// Allow/Revoke Tab CSS
+
+#AL-RV-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+
+    .form-heading-AL-RV {
+        border-bottom: 2px solid $footer-grey;
+        padding-left: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+.form-heading-AL-RV {
+    border-bottom: 2px solid $footer-grey;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+#AL-RV-form-sections{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.AL-RV-options{
+    width: 100%;
+}
+
+@media (max-width: 576px) {
+    .AL-RV-options{
+        width: 100%;
+        padding-right: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+// Slider CSS
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: $Violet;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+// Third Tab CSS
+
+#info-pane{
+    background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+}
+
+@media (max-width: 576px) {
+    #info-container{
+        border-radius: 8px;
+        padding: 20px;
+    }
+}
+
+// button CSS
+#profile-button-div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#button-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 91%;
+}
+
+.clear-button {
+    @include clear-button();
+    margin: 10px;
+}
+
+.clear-button:hover {
+    opacity: 0.5;
+}
+
+.account-button {
+    @include buttons();
+    margin: 10px;
+}
+
+.account-button:hover {
+    opacity: 0.8;
+}
+
+.AC-RV-clear-button {
+    @include clear-button();
+    margin: 10px;
+}
+
+.AC-RV-clear-button:hover {
+    opacity: 0.5;
+}
+
+.AC-RV-account-button {
+    @include buttons();
+    margin: 10px;
+}
+
+.AC-RV-account-button:hover {
+    opacity: 0.8;
+}
+
+// Button Mobile Adjustments
+@media (max-width: 576px) {
+
+    // Password button adjustments 
+    #button-div {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        height: 83%;
+    }
+}
+
+// Alert boxes CSS
+
+#cleared-alert {
+    @include alert-box();
+}
+
+#updated-password-alert {
+    @include alert-box();
+}
+
+#updated-profile-alert {
+    @include alert-box();
+}
+
+#alert-contents {
+    @include alert-box-contents();
+}
+
+#AC-RV-cleared-alert{
+    @include alert-box();
+}
+
+#AC-RV-update-alert{
+    @include alert-box();
+}
+#alert-contents {
+    @include alert-box-contents();
+}
+
+
+// Sub Footer CSS
+
+#sub-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 8rem;
+    background-color: #53565a;
+    color: white;
+}
+
+.contact-us {
+    padding-top: 30px;
+    margin: 0;
+}
+
+// Bottom Footer CSS 
+
+.main-footer {
+    width: 100%;
+}
+
+#bottom-footer {
+    background-color: $footer-grey;
+    color: white;
+    font-size: 15px;
+}
+
+#link-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 15px;
+    padding: 10px;
+    padding-top: 30px;
+}
+
+.footer-link {
+    padding-right: 10px;
+}
+
+a {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(233, 231, 231);
+}
+
+// Bottom Footer Mobile Adjustments 
+@media (max-width: 576px) {
+    #link-list {
+        flex-wrap: wrap;
+    }
+}
