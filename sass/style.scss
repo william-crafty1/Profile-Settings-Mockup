@@ -388,12 +388,55 @@ input:checked+.slider:before {
         padding: 20px;
 }
 
+#settings-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#account-settings{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#account-settings-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#setting-options{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#setting-options-btns{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
 @media (max-width: 576px) {
     #info-container{
         border-radius: 8px;
         padding: 20px;
     }
+    #settings-container{
+        flex-direction: column;
+    }
+    #setting-options{
+        text-align: center;
+    }
+
+    #setting-options-btns{
+        text-align: center;
+    }
 }
+
 
 // button CSS
 #profile-button-div {
@@ -482,6 +525,11 @@ input:checked+.slider:before {
 #AC-RV-update-alert{
     @include alert-box();
 }
+
+#deactivate-alert{
+    @include alert-box();
+}
+
 #alert-contents {
     @include alert-box-contents();
 }

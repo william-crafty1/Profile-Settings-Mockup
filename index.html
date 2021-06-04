@@ -199,7 +199,8 @@
                         inventore harum voluptatibus qui et, laboriosam eligendi omnis. Lorem ipsum dolor sit amet
                         consectetur adipisicing elit. Ratione explicabo illum corrupti ullam nisi dolorum, iste
                         voluptatibus commodi, accusamus facilis nobis labore suscipit quae voluptas consectetur hic
-                        perspiciatis dignissimos? Consequatur.</p>
+                        perspiciatis dignissimos? Consequatur.
+                    </p>
                     <br>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia aliquid sed voluptas ad!
                         Officia blanditiis rem esse incidunt cupiditate rerum aliquid dolorum doloribus? Ea iure odio
@@ -210,7 +211,37 @@
                         maxime quisquam distinctio suscipit, officia in molestiae dolor ducimus hic? Nemo. Lorem ipsum
                         dolor sit amet consectetur adipisicing elit. Molestiae rerum reprehenderit voluptatem vel nam
                         voluptatibus praesentium nesciunt assumenda illum deserunt magnam sapiente, nisi, distinctio
-                        ullam repellendus voluptas dicta est facilis.</p>
+                        ullam repellendus voluptas dicta est facilis.
+                    </p>
+                    <hr>
+                        <div class="container" id="settings-container">
+                            <div class="container" id="account-settings">
+                                <div class="mb-3" id="setting-options">
+                                    <h6>Receive paperless updates</h6>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="mb-3" id="setting-options">
+                                    <h6>Turn on/off email notifications</h6>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="container" id="account-settings-button">
+                                <div class="mb-3" id="setting-options-btns">
+                                    <button type="button" class="AC-RV-account-button" id="update-profile-btn">
+                                        Save changes
+                                    </button>
+                                    <button type="button" class="account-button" id="delete-profile-btn">
+                                        Deactivate Account
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -240,6 +271,11 @@
     <div class="container" id="AC-RV-update-alert">
         <div class="container" id="alert-contents">
             <h5>Your preferences have been updated.</h5>
+        </div>
+    </div>
+    <div class="container" id="deactivate-alert">
+        <div class="container" id="alert-contents">
+            <h5>Your account has been deleted, redirecting...</h5>
         </div>
     </div>
 
@@ -326,6 +362,11 @@
 
         $('.AC-RV-account-button').click(function () {
             $('#AC-RV-update-alert').fadeIn('fast').delay(1500).fadeOut('slow');
+        });
+
+        $('#delete-profile-btn').click(function () {
+            $('#deactivate-alert').fadeIn('fast').delay(1500).fadeOut('slow');
+            setTimeout(location.reload.bind(location), 3000);
         });
     });
 </script>
